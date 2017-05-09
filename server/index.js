@@ -6,15 +6,15 @@ const app = express();
 module.exports = app;
 
 app.post('/', function(req, res){
-
+  res.send("post /")
 })
 
 app.get('/', function(req, res){
   res.send("get /")
 })
 
-app.post('/', function(req, res){
-
+app.delete('/', function(req, res){
+  res.send("delete /")
 })
 
 app.listen('3000', function(){
