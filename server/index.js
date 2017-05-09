@@ -5,7 +5,11 @@ var bodyParser = require('body-parser');
 const app = express();
 module.exports = app;
 
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+
 app.post('/', function(req, res){
+  console.log("req.body", req.body)
   res.send("post /")
 })
 
