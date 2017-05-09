@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Clarkbaum/ReactChallenge/issues"
   },
-  "homepage": "https://github.com/Clarkbaum/ReactChallenge#readme"
+  "homepage": "https://github.com/Clarkbaum/ReactChallenge#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1"
+  }
 }
