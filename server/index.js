@@ -13,8 +13,13 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 app.post('/', function(req, res){
-  console.log("req.body", req.body)
   article.create(req, res)
+  //res.send("post /")
+})
+
+app.put('/:article', function(req, res){
+  //the put will include the article id in the request.params
+  article.update(req, res)
   //res.send("post /")
 })
 
