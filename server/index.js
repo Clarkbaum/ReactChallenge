@@ -19,11 +19,12 @@ app.post('/', function(req, res){
 })
 
 app.get('/', function(req, res){
-  res.send("get /")
+  article.get(req, res)
+  //res.send("get /")
 })
 
 app.delete('/', function(req, res){
-  res.send("delete /")
+  //res.send("delete /")
 })
 
 app.listen('8080', function(){
