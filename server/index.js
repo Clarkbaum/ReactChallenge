@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const config = require('./config/config.js');
+const article = require('./controllers/articles.js');
+
 require('./config/database.js')(config);
 
 
@@ -12,6 +14,7 @@ app.use(bodyParser.json());
 
 app.post('/', function(req, res){
   console.log("req.body", req.body)
+  article.create(req, res)
   res.send("post /")
 })
 
