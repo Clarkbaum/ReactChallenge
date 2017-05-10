@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.post('/', function(req, res){
   console.log("req.body", req.body)
   article.create(req, res)
-  res.send("post /")
+  //res.send("post /")
 })
 
 app.get('/', function(req, res){
