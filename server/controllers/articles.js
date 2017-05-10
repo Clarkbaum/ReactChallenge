@@ -14,7 +14,6 @@ exports.get = (request, response) => {
 };
 
 exports.update = (request, response) => {
-  console.log("article controller request.params", request.params)
   Article.findById(request.params.article).exec()
   .then((data) => {
     const doc = data;
@@ -28,4 +27,11 @@ exports.update = (request, response) => {
     response.status(200).json(result);
   })
   .catch((err) => console.log("article.update error", err));
+};
+
+exports.delete = (request, response) => {
+  Article.findById(request.params.article).exec()
+  .then(doc => doc.remove())
+  .then(doc => response.status(200).json(doc))
+  .catch((err) => console.log("article.delete error", err));
 };

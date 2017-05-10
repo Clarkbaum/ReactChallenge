@@ -14,22 +14,20 @@ app.use(bodyParser.json());
 
 app.post('/', function(req, res){
   article.create(req, res)
-  //res.send("post /")
 })
 
 app.put('/:article', function(req, res){
   //the put will include the article id in the request.params
   article.update(req, res)
-  //res.send("post /")
 })
 
 app.get('/', function(req, res){
   article.get(req, res)
-  //res.send("get /")
 })
 
-app.delete('/', function(req, res){
-  //res.send("delete /")
+app.delete('/:article', function(req, res){
+  //the delete will include the article id in the request.params
+  article.delete(req, res)
 })
 
 app.listen('8080', function(){
