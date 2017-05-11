@@ -1,9 +1,21 @@
 const React = require('react')
 
-const App = () => (
-  <div>
-    test app!
-  </div>
-)
+class App extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      
+    };
+  }
+
+  render(){
+    return (
+      <div>
+        test APP!!
+      </div>
+    )
+  }
+}
 
 export default App;
