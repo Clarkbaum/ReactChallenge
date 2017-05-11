@@ -12,6 +12,14 @@ module.exports = app;
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+  res.setHeader('access-control-allow-origin', '*');
+  res.setHeader('access-control-allow-headers', 'x-parse-application-id, x-parse-rest-api-key, Content-Type, Accept');
+
+  //res.setHeader('Content-Type', 'application/json');
+  next();
+});
+
 app.post('/articles', function(req, res){
   article.create(req, res)
 })
