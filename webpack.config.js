@@ -10,14 +10,17 @@ module.exports = {
   module:{
     loaders: [
       {
-        test: /\.js&/,
+        test: /\.jsx?$/,      //both js and jsx files
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
       }
     ]
   },
   output: {
-    filename: 'transformed.js',
+    filename: 'bundled.js',
     path: __dirname + '/build'
   },
   plugins: [HTMLWebpackPluginConfig]
