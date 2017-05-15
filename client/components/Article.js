@@ -54,6 +54,7 @@ class Article extends React.Component {
     .catch(err => console.log("error put/edit articles", err))
 
     this.setState({open: false});
+    window.location.reload();
   }
 
   textChange(type, value) {
