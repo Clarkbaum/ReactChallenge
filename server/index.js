@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
   res.setHeader('access-control-allow-origin', '*');
+  res.setHeader('access-control-allow-methods', 'POST, PUT, GET, DELETE');
   res.setHeader('access-control-allow-headers', 'x-parse-application-id, x-parse-rest-api-key, Content-Type, Accept');
 
   //res.setHeader('Content-Type', 'application/json');
@@ -30,6 +31,7 @@ app.put('/articles/:article', function(req, res){
 })
 
 app.get('/articles', function(req, res){
+  console.log("article get")
   article.get(req, res)
 })
 

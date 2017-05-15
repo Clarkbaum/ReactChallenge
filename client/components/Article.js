@@ -30,6 +30,7 @@ class Article extends React.Component {
 
   handleClose() {
     this.setState({open: false});
+    //dont want state out of sync if canceled
     this.setState({editTitle: this.props.article.title})
     this.setState({editAuthor: this.props.article.author})
     this.setState({editDate: this.props.article.date})
@@ -59,7 +60,14 @@ class Article extends React.Component {
       <FlatButton
         label="Submit"
         primary={true}
-        onTouchTap={this.handleClose.bind(this)}
+        onTouchTap={this.props.handleSubmit(this.props.article._id,
+          JSON.stringify({
+            title: this.state.editTitle,
+            author: this.state.editAuthor,
+            date: this.state.editDate,
+            articalBody: this.state.editBody
+          })
+        )}
       />,
     ];
 
@@ -95,7 +103,7 @@ class Article extends React.Component {
               defaultValue={this.props.article.title}
               name='title'
               fullWidth={true}
-              onChange={(e, value) => this.textChange('title', value).bind(this)}
+              onChange={(e, value) => this.textChange('title', value)}
             />
           </div>
           <div>
@@ -103,7 +111,7 @@ class Article extends React.Component {
               defaultValue={this.props.article.author}
               name='author'
               fullWidth={true}
-              onChange={(e, value) => this.textChange('author', value).bind(this)}
+              onChange={(e, value) => this.textChange('author', value)}
             />
           </div>
           <div>
@@ -111,7 +119,7 @@ class Article extends React.Component {
               defaultValue={this.props.article.date}
               name='date'
               fullWidth={true}
-              onChange={(e, value) => this.textChange('date', value).bind(this)}
+              onChange={(e, value) => this.textChange('date', value)}
             />
           </div>
           <div>
@@ -120,7 +128,7 @@ class Article extends React.Component {
               name='articalBody'
               multiLine
               fullWidth={true}
-              onChange={(e, value) => this.textChange('body', value).bind(this)}
+              onChange={(e, value) => this.textChange('body', value)}
             />
           </div>
         </Dialog>

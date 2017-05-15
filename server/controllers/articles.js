@@ -18,7 +18,7 @@ exports.update = (request, response) => {
   .then((data) => {
     const doc = data;
     doc.title = request.body.title;
-    doc.auther = request.body.auther;
+    doc.author = request.body.author;
     doc.date = request.body.date;
     doc.articalBody = request.body.articalBody;
     return doc.save();
