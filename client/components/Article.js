@@ -57,6 +57,19 @@ class Article extends React.Component {
     window.location.reload();
   }
 
+  handleDelete() {
+    fetch('http://localhost:8000/articles/' + this.props.article._id, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(console.log("article deleted"))
+    .catch(err => console.log("error delete article", err))
+
+    window.location.reload();
+  }
+
   textChange(type, value) {
     if(type === 'title'){
       this.setState({editTitle: value})
@@ -105,6 +118,8 @@ class Article extends React.Component {
         />
         <FlatButton
           label="Delete"
+          onTouchTap={this.handleDelete.bind(this)}
+
         />
         <Dialog 
           title="Edit"
