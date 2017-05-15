@@ -37,6 +37,25 @@ class Article extends React.Component {
     this.setState({editBody: this.props.article.articalBody})
   };
 
+  handleSubmit() {
+    fetch('http://localhost:8000/articles/' + this.props.article._id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: this.state.editTitle,
+        author: this.state.editAuthor,
+        date: this.state.editDate,
+        articalBody: this.state.editBody
+      })
+    })
+    .then(console.log("article edited"))
+    .catch(err => console.log("error put/edit articles", err))
+
+    this.setState({open: false});
+  }
+
   textChange(type, value) {
     if(type === 'title'){
       this.setState({editTitle: value})
@@ -60,14 +79,7 @@ class Article extends React.Component {
       <FlatButton
         label="Submit"
         primary={true}
-        onTouchTap={this.props.handleSubmit(this.props.article._id,
-          JSON.stringify({
-            title: this.state.editTitle,
-            author: this.state.editAuthor,
-            date: this.state.editDate,
-            articalBody: this.state.editBody
-          })
-        )}
+        onTouchTap={this.handleSubmit.bind(this)}
       />,
     ];
 
