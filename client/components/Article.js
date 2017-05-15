@@ -15,7 +15,11 @@ class Article extends React.Component {
     super(props);
 
     this.state = {
-      open: false
+      open: false,
+      editTitle: this.props.article.title,
+      editAuthor: this.props.article.author,
+      editDate: this.props.article.date,
+      editBody: this.props.article.articalBody
     };
     console.log("this.props", this.props)
   }
@@ -26,7 +30,23 @@ class Article extends React.Component {
 
   handleClose() {
     this.setState({open: false});
+    this.setState({editTitle: this.props.article.title})
+    this.setState({editAuthor: this.props.article.author})
+    this.setState({editDate: this.props.article.date})
+    this.setState({editBody: this.props.article.articalBody})
   };
+
+  textChange(type, value) {
+    if(type === 'title'){
+      this.setState({editTitle: value})
+    } else if (type === 'author') {
+      this.setState({editAuthor: value})
+    } else if (type === 'date') {
+      this.setState({editDate: value})
+    } else if (type === 'body') {
+      this.setState({editBody: value})
+    }
+  }
   
 
   render() {
@@ -75,6 +95,7 @@ class Article extends React.Component {
               defaultValue={this.props.article.title}
               name='title'
               fullWidth={true}
+              onChange={(e, value) => this.textChange('title', value).bind(this)}
             />
           </div>
           <div>
@@ -82,6 +103,7 @@ class Article extends React.Component {
               defaultValue={this.props.article.author}
               name='author'
               fullWidth={true}
+              onChange={(e, value) => this.textChange('author', value).bind(this)}
             />
           </div>
           <div>
@@ -89,6 +111,7 @@ class Article extends React.Component {
               defaultValue={this.props.article.date}
               name='date'
               fullWidth={true}
+              onChange={(e, value) => this.textChange('date', value).bind(this)}
             />
           </div>
           <div>
@@ -97,6 +120,7 @@ class Article extends React.Component {
               name='articalBody'
               multiLine
               fullWidth={true}
+              onChange={(e, value) => this.textChange('body', value).bind(this)}
             />
           </div>
         </Dialog>
