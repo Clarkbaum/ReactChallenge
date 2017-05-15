@@ -63,7 +63,23 @@ class App extends React.Component {
   }
 
   addArticle() {
+    fetch('http://localhost:8000/articles', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: this.state.addTitle,
+        author: this.state.addAuthor,
+        date: this.state.addDate,
+        articalBody: this.state.addBody
+      })
+    })
+    .then(console.log("article added"))
+    .catch(err => console.log("error posting article", err))
 
+    this.setState({open: false});
+    window.location.reload();
   }
 
   render() {
