@@ -2,6 +2,8 @@ import React from 'react';
 import 'whatwg-fetch';
 import Article from './Article'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import FlatButton from 'material-ui/FlatButton';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -34,6 +36,8 @@ class App extends React.Component {
       <MuiThemeProvider>
         <div>
           <h1>React Full Stack </h1>
+          <FlatButton label="add article" />
+          
           {this.state.data.map(article => 
             <Article article={article} />
           )}
