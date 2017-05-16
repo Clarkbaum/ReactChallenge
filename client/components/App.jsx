@@ -9,7 +9,16 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 const styles = {
   addButton: {
-    marginBottom: 20
+    marginBottom: 20,
+    marginTop: 20
+  },
+  topTitle: {
+    backgroundColor: '#2d2d2d',
+    color: '#61dafb',
+    textAlign: 'center',
+    height: 100,
+    paddingTop: 50,
+    margin: 0
   }
 }
 
@@ -104,7 +113,7 @@ class App extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
-          <h1>React Full Stack </h1>
+          <h1 style={styles.topTitle}>React Full Stack </h1>
           <RaisedButton 
             label="Add Article" 
             onTouchTap={this.handleOpen.bind(this)}
