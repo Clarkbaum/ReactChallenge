@@ -10,22 +10,26 @@ import MERN from '../assets/MERN.jpg';
 
 const styles = {
   addButton: {
-    backgroundColor: '#a4c639',
     marginBottom: 20,
     marginTop: 20,
+  },
+  header: {
+    backgroundColor: '#2d2d2d',
+    height: 200,
+    paddingTop: 100,
+    margin: 0,
+    textAlign: 'center',
+    marginBottom: 20
   },
   topTitle: {
     fontSize: 34,
     fontWeight: 600,
     fontFamily: 'proxima-nova,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif',
-    backgroundColor: '#2d2d2d',
     color: '#61dafb',
-    textAlign: 'center',
-    height: 150,
-    paddingTop: 75,
     margin: 0
   },
   subTitle: {
+    fontFamily: 'proxima-nova,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif',
     fontSize: 16,
     color: 'white'
   },
@@ -42,6 +46,7 @@ class App extends React.Component {
     this.state = {
       data: [],
       open: false,
+      hovered: false,
       addTitle: 'title',
       addAuthor: 'author',
       addDate: 'date',
@@ -90,6 +95,28 @@ class App extends React.Component {
     }
   }
 
+  onMouseOver() {
+    this.setState({ hovered:true });
+  }
+
+  onMouseOut() {
+    this.setState({ hovered:false });
+  }
+
+  isHovered() {
+    if (this.state.hovered) {
+      return { 
+        backgroundColor: "rgba(0,255,0,0.2)" ,
+        marginTop: 20
+      }
+    } else {
+      return { 
+        backgroundColor: "rgba(0, 255, 0, 0.5)" ,
+        marginTop: 20
+      }
+    }
+  }
+
   addArticle() {
     fetch('http://localhost:8000/articles', {
       method: 'POST',
@@ -126,16 +153,18 @@ class App extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
-          <div style={styles.topTitle}>
-            <img  style={styles.mernLogo} className="logo" src={MERN} alt="MERN" />
-            React Full Stack
+          <div style={styles.header}>
+            <img style={styles.mernLogo} className="logo" src={MERN} alt="MERN" />
+            <span style={styles.topTitle}>React Full Stack </span>
             <div style={styles.subTitle}>list, create, delete, and update your articles</div> 
+            <FlatButton 
+              label="Add Article" 
+              onTouchTap={this.handleOpen.bind(this)}
+              style={this.isHovered()}
+              onMouseOver={this.onMouseOver.bind(this)}
+              onMouseOut={this.onMouseOut.bind(this)} 
+            />
           </div>
-          <RaisedButton 
-            label="Add Article" 
-            onTouchTap={this.handleOpen.bind(this)}
-            style={styles.addButton}
-          />
           <Dialog 
             title="Add Article"
             open={this.state.open}
