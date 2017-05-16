@@ -25,6 +25,9 @@ const styles = {
   },
   articleBody: {
     marginBottom: 10
+  },
+  deleteButton: {
+    backgroundColor: 'rgba(255,0,0,0.1)'
   }
 }
 class Article extends React.Component {
@@ -33,6 +36,7 @@ class Article extends React.Component {
 
     this.state = {
       open: false,
+      hovered: false,
       editTitle: this.props.article.title,
       editAuthor: this.props.article.author,
       editDate: this.props.article.date,
@@ -98,7 +102,22 @@ class Article extends React.Component {
       this.setState({editBody: value})
     }
   }
+
+  onMouseOver() {
+    this.setState({ hovered:true });
+  }
+
+  onMouseOut() {
+    this.setState({ hovered:false });
+  }
   
+  isHovered() {
+    if (this.state.hovered) {
+      return { backgroundColor: "rgba(255,0,0,0.3" }
+    } else {
+      return { backgroundColor: "rgba(255,0,0,0.1" }
+    }
+  }
 
   render() {
     const actions = [
@@ -136,7 +155,9 @@ class Article extends React.Component {
         <FlatButton
           label="Delete"
           onTouchTap={this.handleDelete.bind(this)}
-
+          style={this.isHovered()}
+          onMouseOver={this.onMouseOver.bind(this)}
+          onMouseOut={this.onMouseOut.bind(this)} 
         />
         <Dialog 
           title="Edit"

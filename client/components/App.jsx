@@ -10,8 +10,9 @@ import MERN from '../assets/MERN.jpg';
 
 const styles = {
   addButton: {
+    backgroundColor: '#a4c639',
     marginBottom: 20,
-    marginTop: 20
+    marginTop: 20,
   },
   topTitle: {
     fontSize: 34,
