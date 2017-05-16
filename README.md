@@ -30,3 +30,5 @@ open another tab and run
 ```
 mongod
 ```
+
+navigate to http://localhost:8080/
