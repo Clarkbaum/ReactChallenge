@@ -31,7 +31,6 @@ app.put('/articles/:article', function(req, res){
 })
 
 app.get('/articles', function(req, res){
-  console.log("article get")
   article.get(req, res)
 })
 

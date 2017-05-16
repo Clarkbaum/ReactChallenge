@@ -8,6 +8,10 @@ const styles = {
   article: {
     padding: 10,
     marginBottom: 20
+  },
+  articleTitle: {
+    font: '48px/52px "Effra",Helvetica,Arial,sans-serif;',
+    fontWeight: 700
   }
 }
 class Article extends React.Component {
@@ -132,6 +136,8 @@ class Article extends React.Component {
               name='title'
               fullWidth={true}
               onChange={(e, value) => this.textChange('title', value)}
+              //style={styles.articleTitle}
+              className='articleTitle'
             />
           </div>
           <div>

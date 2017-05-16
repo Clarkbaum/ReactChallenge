@@ -5,7 +5,13 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
+const styles = {
+  addButton: {
+    marginBottom: 20
+  }
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -99,9 +105,10 @@ class App extends React.Component {
       <MuiThemeProvider>
         <div>
           <h1>React Full Stack </h1>
-          <FlatButton 
+          <RaisedButton 
             label="Add Article" 
             onTouchTap={this.handleOpen.bind(this)}
+            style={styles.addButton}
           />
           <Dialog 
             title="Add Article"
@@ -111,7 +118,7 @@ class App extends React.Component {
             <div>
               <TextField
                 name='title'
-                floatingLabelText='title'
+                floatingLabelText='Title'
                 fullWidth={true}
                 onChange={(e, value) => this.textChange('title', value)}
               />
@@ -119,7 +126,7 @@ class App extends React.Component {
             <div>
               <TextField
                 name='author'
-                floatingLabelText='author'
+                floatingLabelText='Author'
                 fullWidth={true}
                 onChange={(e, value) => this.textChange('author', value)}
               />
@@ -127,7 +134,7 @@ class App extends React.Component {
             <div>
               <TextField
                 name='date'
-                floatingLabelText='date'
+                floatingLabelText='Date'
                 fullWidth={true}
                 onChange={(e, value) => this.textChange('date', value)}
               />
@@ -135,7 +142,7 @@ class App extends React.Component {
             <div>
               <TextField
                 name='articalBody'
-                floatingLabelText='articalBody'
+                floatingLabelText='Artical Body'
                 multiLine
                 fullWidth={true}
                 onChange={(e, value) => this.textChange('body', value)}
