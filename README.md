@@ -11,3 +11,22 @@ React Challenge is a simple full stack application usng the MERN tech stack, bui
   1. [React](https://facebook.github.io/react/) / [Redux](http://redux.js.org/)
   1. [Material-UI](http://www.material-ui.com/#/)
   1. [Webpack](https://webpack.github.io/) / [Babel](https://babeljs.io/)
+
+## how to run
+
+open a new tab and run
+
+```
+npn run server
+```
+
+open another tab and run
+
+```
+np run client
+```
+
+open another tab and run 
+```
+mongod
+```
