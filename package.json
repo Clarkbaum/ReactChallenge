@@ -28,7 +28,8 @@
     "mongoose": "^4.9.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-tap-event-plugin": "^2.0.1",
+    "style-loader": "^0.17.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

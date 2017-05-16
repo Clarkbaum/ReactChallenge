@@ -10,8 +10,18 @@ const styles = {
     marginBottom: 20
   },
   articleTitle: {
-    font: '48px/52px "Effra",Helvetica,Arial,sans-serif;',
-    fontWeight: 700
+    font: '48px/52px Effra,Helvetica,Arial,sans-serif',
+    fontWeight: 700,
+    marginBottom: 10
+  },
+  articleAuthor: {
+    marginTop: 10,
+    font: '20px Effra,Helvetica,Arial,sans-serif',
+    fontWeight: 600
+  },
+  articleDate: {
+    color: '#a8a8a8',
+    marginBottom: 60
   }
 }
 class Article extends React.Component {
@@ -103,14 +113,14 @@ class Article extends React.Component {
 
     return (
       <Paper style={styles.article} zDepth={2}>
-        <div>
+        <div style={styles.articleTitle}>
           {this.props.article.title}
-
         </div>
-        <div>
+        -------------------
+        <div style={styles.articleAuthor}>
           {this.props.article.author}
         </div>
-        <div>
+        <div style={styles.articleDate}>
           {this.props.article.date}
         </div>
         <div>
@@ -136,8 +146,6 @@ class Article extends React.Component {
               name='title'
               fullWidth={true}
               onChange={(e, value) => this.textChange('title', value)}
-              //style={styles.articleTitle}
-              className='articleTitle'
             />
           </div>
           <div>
