@@ -6,6 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import MERN from '../assets/MERN.jpg';
 
 const styles = {
   addButton: {
@@ -13,17 +14,23 @@ const styles = {
     marginTop: 20
   },
   topTitle: {
+    fontSize: 34,
+    fontWeight: 600,
     fontFamily: 'proxima-nova,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif',
     backgroundColor: '#2d2d2d',
     color: '#61dafb',
     textAlign: 'center',
-    height: 100,
-    paddingTop: 50,
+    height: 150,
+    paddingTop: 75,
     margin: 0
   },
   subTitle: {
     fontSize: 16,
     color: 'white'
+  },
+  mernLogo: {
+    height: 50,
+    marginRight: 10
   }
 }
 
@@ -118,10 +125,11 @@ class App extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
-          <h1 style={styles.topTitle}>
+          <div style={styles.topTitle}>
+            <img  style={styles.mernLogo} className="logo" src={MERN} alt="MERN" />
             React Full Stack
             <div style={styles.subTitle}>list, create, delete, and update your articles</div> 
-          </h1>
+          </div>
           <RaisedButton 
             label="Add Article" 
             onTouchTap={this.handleOpen.bind(this)}
