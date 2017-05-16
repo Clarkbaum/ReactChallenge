@@ -13,12 +13,17 @@ const styles = {
     marginTop: 20
   },
   topTitle: {
+    fontFamily: 'proxima-nova,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif',
     backgroundColor: '#2d2d2d',
     color: '#61dafb',
     textAlign: 'center',
     height: 100,
     paddingTop: 50,
     margin: 0
+  },
+  subTitle: {
+    fontSize: 16,
+    color: 'white'
   }
 }
 
@@ -113,7 +118,10 @@ class App extends React.Component {
     return (
       <MuiThemeProvider>
         <div>
-          <h1 style={styles.topTitle}>React Full Stack </h1>
+          <h1 style={styles.topTitle}>
+            React Full Stack
+            <div style={styles.subTitle}>list, create, delete, and update your articles</div> 
+          </h1>
           <RaisedButton 
             label="Add Article" 
             onTouchTap={this.handleOpen.bind(this)}

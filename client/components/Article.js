@@ -22,6 +22,9 @@ const styles = {
   articleDate: {
     color: '#a8a8a8',
     marginBottom: 60
+  },
+  articleBody: {
+    marginBottom: 10
   }
 }
 class Article extends React.Component {
@@ -123,7 +126,7 @@ class Article extends React.Component {
         <div style={styles.articleDate}>
           {this.props.article.date}
         </div>
-        <div>
+        <div style={styles.articleBody}>
           {this.props.article.articalBody}
         </div>
         <FlatButton
