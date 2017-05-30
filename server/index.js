@@ -39,6 +39,11 @@ app.delete('/articles/:article', function(req, res){
   article.delete(req, res)
 })
 
+app.get('*', function(req, res){
+  console.log("NOT FOUND");
+  res.status(404)
+})
+
 app.listen('8000', function(){
   console.log('listening on port 8000');
 })
