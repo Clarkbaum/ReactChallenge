@@ -17,13 +17,13 @@ React Challenge is a simple full stack application usng the MERN tech stack, bui
 open a new tab and run
 
 ```
-npn run server
+npm run server
 ```
 
 open another tab and run
 
 ```
-np run client
+npm run client
 ```
 
 open another tab and run 
